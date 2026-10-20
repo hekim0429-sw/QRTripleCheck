@@ -41,7 +41,7 @@ class MainActivity : Activity() {
     else if (raw.length < 12) Toast.makeText(this,"12자리 미만입니다. 다시 스캔하세요.",Toast.LENGTH_LONG).show()
     else values.add(raw)
    }
-   .addOnFailureListener { Toast.makeText(this,"스캔 오류: ${it.localizedMessage}",Toast.LENGTH_LONG).show() }
+   .addOnFailureListener { error: Exception -> Toast.makeText(this,"스캔 오류: ${error.localizedMessage}",Toast.LENGTH_LONG).show() }
    .addOnCompleteListener { scanning = false; refresh() }
  }
  private fun refresh() {
